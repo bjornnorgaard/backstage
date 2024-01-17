@@ -3,11 +3,11 @@ services:
   postgres:
     image: postgres
     ports:
-      - "6543:5432"
+      - "${POSTGRES_PORT}:5432"
     restart: unless-stopped
     environment:
-      POSTGRES_USER: backstage
-      POSTGRES_PASSWORD: changeme
-      POSTGRES_DB: backstage
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./volumes/postgres:/var/lib/postgresql/data
