@@ -1,0 +1,13 @@
+services:
+
+  postgres:
+    image: postgres
+    ports:
+      - "6543:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: backstage
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: backstage
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
